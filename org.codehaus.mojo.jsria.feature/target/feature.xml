@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.codehaus.mojo.jsria"
+      label="JS RIA project configurator Feature"
+      version="1.0.0.201205312053"
+      provider-name="the Codehaus">
+
+   <license url="http://www.example.com/license">
+      Apache?
+   </license>
+
+   <plugin
+         id="org.codehaus.mojo.jsria.m2e"
+         download-size="11"
+         install-size="22"
+         version="1.0.0.201205312053"
+         unpack="false"/>
+
+</feature>

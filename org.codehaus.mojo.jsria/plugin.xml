@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+   <extension
+         point="org.eclipse.m2e.core.lifecycleMappingMetadataSource">
+   </extension>
+   <extension
+         point="org.eclipse.m2e.core.projectConfigurators">
+      <configurator
+            class="org.codehaus.mojo.jsria.JsriaProjectConfigurator"
+            id="org.codehaus.mojo.jsria.configurator"
+            name="JS-RIA"/>
+   </extension>
+</plugin>
