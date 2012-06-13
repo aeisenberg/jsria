@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+   <extension
+         point="org.eclipse.m2e.core.lifecycleMappingMetadataSource">
+   </extension>
+   <extension
+         point="org.eclipse.m2e.core.projectConfigurators">
+      <configurator
+            class="org.codehaus.mojo.javascript.configurator.JsriaProjectConfigurator"
+            id="org.codehaus.mojo.javascript.configurator.configurator"
+            name="M2E Javascript configurator"/>
+   </extension>
+</plugin>

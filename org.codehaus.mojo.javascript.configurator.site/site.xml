@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.codehaus.mojo.javascript.configurator_1.0.0.qualifier.jar" id="org.codehaus.mojo.javascript.configurator" version="1.0.0.qualifier">
+      <category name="org.codehaus.mojo.javascript.configurator"/>
+   </feature>
+   <category-def name="org.codehaus.mojo.javascript.configurator" label="JS RIA M2E Project configurator"/>
+</site>

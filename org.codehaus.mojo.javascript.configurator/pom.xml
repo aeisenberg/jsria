@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.springsource.sts</groupId>
+	<parent>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>org.codehaus.mojo.javascript.configurator.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>org.codehaus.mojo.javascript.configurator</artifactId>
+	<packaging>eclipse-plugin</packaging>
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+	
+	<name>M2E Javascript Configurator</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- enable tycho build extension -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<!-- configure the p2 target environments for multi-platform build -->
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<!-- enable source bundle generation -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>macosx</id>
+			<activation>
+				<os>
+					<name>macosx</name>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<ui.test.vmargs>-Xmx1024m -XX:MaxPermSize=256m -XstartOnFirstThread</ui.test.vmargs>
+			</properties>
+		</profile>
+		<profile>
+			<id>other-os</id>
+			<activation>
+				<os>
+					<name>not-mac</name>
+					<family>!mac</family>
+				</os>
+			</activation>
+			<properties>
+				<ui.test.vmargs>-Xmx1024m -XX:MaxPermSize=256m</ui.test.vmargs>
+			</properties>
+		</profile>
+	</profiles>
+</project>
